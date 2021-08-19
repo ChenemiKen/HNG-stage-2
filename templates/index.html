@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename='bootstrap5/bootstrap.min.css')}}">
+    <script src="{{url_for('static', filename='bootstrap5/bootstrap.min.js')}}"></script>
+    <script src="{{url_for('static', filename='bootstrap5/bootstrap.bundle.min.js')}}"></script>
+    <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <title>Document</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light ">
+        <div class="container">
+            <button class="btn btn-outline-secondary ms-auto" type="submit"><b>Blog</b></button>
+        </div>
+    </nav>
+    <main class="container">
+        <div class="row">
+            <div id="left" class="col-md-4">
+                <div id="mobile">
+                    <h3 id="name"><span id="sur">Kenneth </span><span id="first">Akor</span><br><span id="other">Ojochenemi</span> </h3>
+                    <h6 class="" id="title">Software Engineer</h6>
+                    <div id="pic-box">
+                        <div id="pic-frame">
+                            <img src="{{url_for('static', filename='images/ken.png')}}" alt="" id="picture">
+                        </div>
+                    </div>
+                </div>
+                <div id="desktop">
+                    <div id="pic-box">
+                        <div id="pic-frame">
+                            <img src="{{url_for('static', filename='images/ken.png')}}" alt="" id="picture">
+                        </div>
+                    </div>
+                    <h3 id="name"><span id="sur">Kenneth </span><span id="first">Akor</span><br><span id="other">Ojochenemi</span> </h3>
+                    <h6 class="" id="title">Software Developer</h6>
+                </div>
+                <div class="icons-div">
+                    <span>
+                    <img src="{{url_for('static', filename='images/mail.png')}}" alt="github" class="icon">
+                    <img src="{{url_for('static', filename='images/GitHub-Mark.png')}}" alt="github" class="icon">
+                    <img src="{{url_for('static', filename='images/twitter.png')}}" alt="github" class="icon">
+                    <img src="{{url_for('static', filename='images/whatsapp.png')}}" alt="github" class="icon">
+                    </span>
+                    <span>
+                    <img src="{{url_for('static', filename='images/facebook.png')}}" alt="github" class="icon">
+                    <img src="{{url_for('static', filename='images/instagram.png')}}" alt="github" class="icon">
+                    <img src="{{url_for('static', filename='images/linkedin.png')}}" alt="github" class="icon">
+                    <img src="{{url_for('static', filename='images/hashnode.png')}}" alt="github" class="icon">
+                    </span>
+                </div>
+            </div>
+            <div id="right" class="col-md-8">
+                <p>Hello!<br>I'm Kenneth Akor Ojochenemi, A dedicated software developer with an agile experience in 
+                    software development and maintenace. I'm an artist, and my code is my tool for conjuring up elegant 
+                    masterpieces in software form.<br>I specialise in building, developing and plumbing software with a 
+                    goal to implement apt logic that fullfils business purposes and needs seamlessly.<br>I also write on
+                    topics around web development, infrastructure, devOps, cloud and generally anything around software engineering 
+                    <a href=""><b>here</b><img src="{{url_for('static', filename='images/hashnode.png')}}" alt="Blog" class="icon-small"></a></p>
+                <h5 class="fw-bolder mt-5">Technologies</h5>
+                <div class="techs-list">
+                    <ul>
+                        <li>Python</li>
+                        <li>Go</li>
+                        <li>PHP</li>
+                        <li>Javascript</li>
+                        <li>C++</li>
+                        <li>C</li>
+                        <br><br>
+                        <li>Node.js</li>
+                        <li>Django</li>
+                        <li>Flask</li>
+                        <li>Laravel</li>
+                        <li>React.js</li>
+                        <br><br>
+                        <li>Linux</li>
+                        <li>Docker</li>
+                        <li>Git</li>
+                        <li>SQL</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <section class="contact-section container" id="contact-section">
+            <h4 class="mb-2 text-center">Get in touch</h4><hr class="mt-0">
+            <div class="row">
+                <div class="col-md-4 mt-md-5 contact-icons-div">
+                    <a href="">
+                        <div class="row">
+                            <span class="col-md-2"><img class="icon contact-icon" src="{{url_for('static', filename='images/mail.png')}}" alt=""></span>
+                            <div class="col-md-8 d-inline">
+                                <p class="contact-detail">chenemiken15@gmail.com</p>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="">
+                        <div class="row">
+                            <span class="col-md-2"><img class="icon contact-icon" src="{{url_for('static', filename='images/twitter.png')}}" alt=""></span>
+                            <div class="col-md-8 d-inline ps-md-2">
+                                <div>
+                                    <p class="contact-detail ps-md-2">@ChenemiKen</p>
+                                </div>  
+                            </div>
+                        </div>
+                    </a>
+                    <a href="">
+                        <div class="row">
+                            <span class="col-md-2"><img class="icon contact-icon" src="{{url_for('static', filename='images/instagram.png')}}" alt=""></span>
+                            <div class="col-md-8 d-inline">
+                                <p class="contact-detail">@chenemi_ken</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-8">
+                    <h6>Send a DM</h6>
+                    <form action="/contact" method="POST" class="contactform">
+                        {{csrf_token}}
+                        <div class="row mb-3">
+                            <div class="col">
+                                <input type="text" class="form-control" name="name" placeholder=" Your Name">
+                            </div>
+                            <div class="col">
+                                <input type="email" class="form-control" name="email" placeholder="Your Email">
+                            </div>
+                        </div>
+                        <div class=" mb-3">
+                        <input type="text" class="form-control" name="subject" placeholder="Subject">
+                        </div>
+                        <div class="mb-3">
+                        <textarea class="form-control" name="message" rows="5" placeholder="Message"></textarea>
+                        </div>
+                        <div class="row">
+                            <div class="col-2">
+                                <button type="submit" class="btn btn-primary">Send</button>
+                            </div>
+                            {% with messages = get_flashed_messages(with_categories=true) %}
+                            {% if messages %}
+                                <ul class='flashes offset-1 col-9'>
+                                {% for category, message in messages %}
+                                <li class="{{ category }}">{{ message }}</li>
+                                {% endfor %}
+                                </ul>
+                            {% endif %}
+                            {% endwith %}
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+        <div class="text-center mt-5">
+            <hr class="mt-5 mb-3">
+            <img src="{{url_for('static', filename='images/zuri-training-img.svg')}}" alt="zuri" class="logo-img">
+            <img src="{{url_for('static', filename='images/I4G-Logo.png')}}" alt="14G-logo" class="logo-img">
+            <img src="{{url_for('static', filename='images/hng-logo.jpg')}}" alt="14G-logo" class="logo-img">
+            <img src="{{url_for('static', filename='images/i4g-zuri.jpeg')}}" alt="14G-zuri" class="logo-img">
+        </div>
+    </main>
+</body>
+</html>
