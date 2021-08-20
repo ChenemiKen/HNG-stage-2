@@ -8,11 +8,23 @@ from datetime import datetime
 
 app = Flask(__name__)
 
+# # local
+# db_host='localhost'
+# db_name='port'
+# db_user='root'
+# db_pass=''
+
+# prod
+db_host='us-cdbr-east-04.cleardb.com'
+db_name='heroku_2a27970d6c75913'
+db_user='b851d9c25fd34e'
+db_pass='b741ff2d'
+
 app.secret_key = "Fedora's little secret"
-app.config['MYSQL_DATABASE_HOST'] = 'localhost'
-app.config['MYSQL_DATABASE_DB'] = 'port'
-app.config['MYSQL_DATABASE_USER'] = 'root'
-app.config['MYSQL_DATABASE_PASSWORD'] = ''
+app.config['MYSQL_DATABASE_HOST'] = db_host
+app.config['MYSQL_DATABASE_DB'] = db_name
+app.config['MYSQL_DATABASE_USER'] = db_user
+app.config['MYSQL_DATABASE_PASSWORD'] = db_pass
 
 mysql = MySQL(app, cursorclass=pymysql.cursors.DictCursor)
 
