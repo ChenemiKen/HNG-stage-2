@@ -9,17 +9,17 @@ from datetime import datetime
 
 app = Flask(__name__)
 
-# # local
-db_host='localhost'
-db_name='port'
-db_user='root'
-db_pass=''
+# local
+# db_host='localhost'
+# db_name='port'
+# db_user='root'
+# db_pass=''
 
 # prod
-# db_host='us-cdbr-east-04.cleardb.com'
-# db_name='heroku_2a27970d6c75913'
-# db_user='b851d9c25fd34e'
-# db_pass='b741ff2d'
+db_host='us-cdbr-east-04.cleardb.com'
+db_name='heroku_2a27970d6c75913'
+db_user='b851d9c25fd34e'
+db_pass='b741ff2d'
 
 app.secret_key = "Fedora's little secret"
 app.config['MYSQL_DATABASE_HOST'] = db_host
