@@ -78,7 +78,7 @@ def contact():
                     VALUES (%s,%s,%s,%s,%s)',\
                     (name,email,subject,message,date))
                 conn.commit()
-                msg = Message('Hello from the other side!', sender='Chenemiken@mailtrap.io', recipients=['paul@mailtrap.io','chenemiken15@gmail.com'])
+                msg = Message('Hello from the other side!', sender='Chenemiken@mailtrap.io', recipients=['paul@mailtrap.io','akorneth16@gmail.com'])
                 msg.body = 'Thanks for reaching out. your message was recieved'
                 msg.html = render_template('index.html')
                 mail.send(msg)
