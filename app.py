@@ -1,7 +1,9 @@
+from re import sub
 from flask import Flask, render_template, url_for, redirect, request, flash
 from flaskext.mysql import MySQL
 import pymysql.cursors
-from flask_mail import Mail, Message
+# from flask_mail import Mail, Message
+from mailSetup import send_mail
 
 import os
 from datetime import datetime
@@ -29,21 +31,15 @@ app.config['MYSQL_DATABASE_PASSWORD'] = db_pass
 
 mysql = MySQL(app, cursorclass=pymysql.cursors.DictCursor)
 
-# app.config['MAIL_SERVER']='smtp.mailtrap.io'
-# app.config['MAIL_PORT'] = 2525
-# app.config['MAIL_USERNAME'] = '5ff3943b683f1b'
-# app.config['MAIL_PASSWORD'] = 'ed6bbbbe849482'
-# app.config['MAIL_USE_TLS'] = True
-# app.config['MAIL_USE_SSL'] = False
 
-app.config['MAIL_SERVER']='smtp.gmail.com'
-app.config['MAIL_PORT'] = 465
-app.config['MAIL_USERNAME'] = 'chenemiken15@gmail.com'
-app.config['MAIL_PASSWORD'] = 'ojochenemi'
-app.config['MAIL_USE_TLS'] = False
-app.config['MAIL_USE_SSL'] = True
+# app.config['MAIL_SERVER']='smtp.gmail.com'
+# app.config['MAIL_PORT'] = 465
+# app.config['MAIL_USERNAME'] = 'chenemiken15@gmail.com'
+# app.config['MAIL_PASSWORD'] = 'ojochenemi'
+# app.config['MAIL_USE_TLS'] = False
+# app.config['MAIL_USE_SSL'] = True
 
-mail = Mail(app)
+# mail = Mail(app)
 
 
 @app.route('/')
@@ -78,10 +74,36 @@ def contact():
                     VALUES (%s,%s,%s,%s,%s)',\
                     (name,email,subject,message,date))
                 conn.commit()
-                msg = Message('Hello from the other side!', sender='Chenemiken@mailtrap.io', recipients=['paul@mailtrap.io','akorneth16@gmail.com'])
-                msg.body = 'Thanks for reaching out. your message was recieved'
-                msg.html = render_template('index.html')
-                mail.send(msg)
+                # mailing with smtp flash mail
+                # msg = Message('Hello from the other side!', sender='Chenemiken@mailtrap.io', recipients=['paul@mailtrap.io','akorneth16@gmail.com'])
+                # msg.body = 'Thanks for reaching out. your message was recieved'
+                # msg.html = render_template('index.html')
+                # mail.send(msg)
+                
+                # mailing with Gmail API
+                # mail the the contact sender
+                destination = email
+                res_subject = "Your message was recieved."
+                send_mail(destination, subject, 'templates/mail.html', 'Kenneth Akor Ojochenemi')
+                
+                # notify my mail
+                notif_subject =('New message from {}\n{}'.format(name,subject))
+                notif_body = open('templates/notification.html', 'w')
+                notif_body.write(
+                    ('<body>\
+                        <h2>New Message</h2>\
+                        <p>----------------------------------------------------------------</p>\
+                        <p>\
+                            Name: {} <br>\
+                            Email: {} <br>\
+                            Subject: {} <br>\
+                            Message: {}\
+                        </p>\
+                    </body>'.format(name,email,subject,message)
+                    ))
+                notif_body.close()
+                send_mail('chenemiken15@gmail.com,', notif_subject,'templates/notification.html', 'Portfolio' )
+
                 flash("Thanks for reaching out. I'll get back to you shortly",'success')
             else:
                 flash('Unable to send your message. Please try again shortly' 'error')
